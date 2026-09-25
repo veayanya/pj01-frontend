@@ -10,6 +10,7 @@
     </a>
     <nav>
       <a href="https://github.com/veayanya/pj01-frontend" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://pypi.org/project/parth-dl/" target="_blank" rel="noopener">PyPI</a>
       <a href="https://github.com/veayanya/pj01-backend/tree/main/docs" target="_blank" rel="noopener">Docs</a>
     </nav>
   </header>
