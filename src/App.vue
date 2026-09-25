@@ -115,6 +115,29 @@
 
     <!-- ====== LANDING MODE: Install prompt ====== -->
     <div class="landing-only">
+      <!-- URL input (always usable, submit waits for server) -->
+      <div class="download-card" style="margin-bottom:20px">
+        <label for="url-input-landing">Paste Link Instagram</label>
+        <div class="input-row">
+          <input
+            id="url-input-landing"
+            v-model="urlInput"
+            type="url"
+            placeholder="https://www.instagram.com/reel/..."
+            autocomplete="off"
+          />
+          <button class="btn-submit" @click="showLandingHint = true">
+            Download
+          </button>
+        </div>
+        <div class="input-meta">
+          <span>🔒 Hanya konten publik, tanpa login</span>
+        </div>
+        <div v-if="showLandingHint" class="landing-hint">
+          ⚠️ Server belum terhubung. Jalankan <code>parth-dl serve</code> lalu muat ulang halaman ini, link yang kamu paste akan langsung diproses.
+        </div>
+      </div>
+
       <div class="install-box">
         <code>pip install parth-dl</code>
         <button class="btn-copy" @click="copyInstall">{{ copyLabel }}</button>
@@ -193,6 +216,7 @@ const submitting    = ref(false)
 const serverVersion = ref('')
 const downloadDir   = ref('./downloads')
 const copyLabel     = ref('Salin')
+const showLandingHint = ref(false)
 const jobs          = ref([]) // [{id, url, title, uploader, type, itemCount, thumbnail, state, percent, statusText, files, canCancel, canRetry}]
 
 // Track polling timers
@@ -576,6 +600,18 @@ h1 .grad {
   font-size: 12px; font-weight: 600; padding: 2px 0;
 }
 .btn-clear:hover { color: var(--danger); }
+
+/* ─── LANDING HINT ─── */
+.landing-hint {
+  margin-top: 12px; padding: 12px 14px; border-radius: 12px;
+  background: #fff8e6; border: 1px solid #ffc845;
+  color: #7a5a00; font-size: 12px; font-weight: 500; line-height: 1.6;
+  text-align: left;
+}
+.landing-hint code {
+  background: rgba(0,0,0,.06); border-radius: 5px;
+  padding: 1px 6px; font-size: 11px;
+}
 
 /* ─── MESSAGES ─── */
 .message { margin: 12px 0 0; font-size: 13px; font-weight: 500; }
