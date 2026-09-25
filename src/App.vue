@@ -318,6 +318,7 @@ async function submit() {
 
   submitting.value = true
   urlInput.value = ''
+  jobs.value = [] // Bersihkan hasil download sebelumnya tiap kali submit link baru
 
   const job = makeJob({ url, state: 'queued', message: 'Mengambil metadata…' })
   jobs.value.unshift(job)
@@ -369,6 +370,7 @@ async function retryJob(job) {
 
 function clearInput() {
   urlInput.value = ''
+  jobs.value = [] // Bersihkan kolom input dan kartu status download
 }
 
 async function copyInstall() {
