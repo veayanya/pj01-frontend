@@ -9,9 +9,10 @@
       <span class="brand-ver" v-if="serverVersion">v{{ serverVersion }}</span>
     </a>
     <nav>
+      <a href="https://konversin.vercel.app/" target="_blank" rel="noopener">Konversin</a>
       <a href="https://github.com/veayanya/pj01-frontend" target="_blank" rel="noopener">GitHub</a>
       <a href="https://pypi.org/project/parth-dl/" target="_blank" rel="noopener">PyPI</a>
-      <a href="https://github.com/veayanya/pj01-backend/tree/main/docs" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/veayanya/pj01-backend/tree/main/docs" target="_blank" rel="noopener">Dokumentasi</a>
     </nav>
   </header>
 
@@ -25,13 +26,13 @@
     </div>
     <div class="badge badge-offline landing-only">
       <span class="badge-dot"></span>
-      Mode landing — jalankan <code style="font-size:11px;color:var(--violet);background:none">parth-dl serve</code> untuk aktifkan download
+      Mode landing — jalankan <code style="font-size:11px;color:var(--violet);background:none">parth-dl serve</code> untuk mengaktifkan fitur unduh
     </div>
 
-    <h1>Instagram<br><span class="grad">Video Downloader.</span></h1>
+    <h1>Instagram<br><span class="grad">Pengunduh Video.</span></h1>
     <p class="subtitle">
-      Download Reel, Post Video, Carousel Video, dan IGTV Instagram publik langsung dari browser.
-      Ringan, zero-dependency, berbasis Python.
+      Unduh Reel, Video Postingan, Video Carousel, dan IGTV Instagram publik langsung dari browser.
+      Ringan, tanpa dependensi tambahan, berbasis Python.
     </p>
 
     <!-- ====== LIVE MODE: Download form ====== -->
@@ -54,7 +55,7 @@
           </select>
           <button class="btn-submit" :disabled="submitting" @click="submit">
             <span v-if="submitting" class="spinner"></span>
-            <span v-else>Download</span>
+            <span v-else>Unduh</span>
           </button>
         </div>
         <div class="input-meta">
@@ -99,7 +100,7 @@
               <li v-for="f in job.files" :key="f.path">
                 <span class="file-name">{{ f.name }}<span v-if="f.existing" style="color:var(--ink-soft);font-weight:400"> (sudah ada)</span></span>
                 <code class="file-path">{{ f.path }}</code>
-                <a :href="f.url" target="_blank" rel="noopener">⬇ Download salinan</a>
+                <a :href="f.url" target="_blank" rel="noopener">⬇ Unduh salinan</a>
               </li>
             </ul>
 
@@ -117,7 +118,7 @@
     <div class="landing-only">
       <!-- URL input (always usable, submit waits for server) -->
       <div class="download-card" style="margin-bottom:20px">
-        <label for="url-input-landing">Paste Link Instagram</label>
+        <label for="url-input-landing">Tempel Link Instagram</label>
         <div class="input-row">
           <input
             id="url-input-landing"
@@ -127,14 +128,14 @@
             autocomplete="off"
           />
           <button class="btn-submit" @click="showLandingHint = true">
-            Download
+            Unduh
           </button>
         </div>
         <div class="input-meta">
           <span>🔒 Hanya konten publik, tanpa login</span>
         </div>
         <div v-if="showLandingHint" class="landing-hint">
-          ⚠️ Server belum terhubung. Jalankan <code>parth-dl serve</code> lalu muat ulang halaman ini, link yang kamu paste akan langsung diproses.
+          ⚠️ Server belum terhubung. Jalankan <code>parth-dl serve</code> lalu muat ulang halaman ini, link yang kamu tempel akan langsung diproses.
         </div>
       </div>
 
@@ -143,16 +144,16 @@
         <button class="btn-copy" @click="copyInstall">{{ copyLabel }}</button>
       </div>
       <p style="color:var(--ink-soft);font-size:13px;margin:0 auto 8px;max-width:500px">
-        Setelah terinstall, jalankan <code style="background:rgba(23,22,42,.06);padding:2px 7px;border-radius:6px;font-size:12px">parth-dl serve</code>
-        lalu buka halaman ini kembali untuk mulai download.
+        Setelah terinstal, jalankan <code style="background:rgba(23,22,42,.06);padding:2px 7px;border-radius:6px;font-size:12px">parth-dl serve</code>
+        lalu buka halaman ini kembali untuk mulai mengunduh.
       </p>
     </div>
 
     <div class="supported">
       <span>Didukung:</span>
       <span class="chip">Reel</span>
-      <span class="chip">Post Video</span>
-      <span class="chip">Carousel Video</span>
+      <span class="chip">Video Postingan</span>
+      <span class="chip">Video Carousel</span>
       <span class="chip">IGTV</span>
     </div>
   </section>
@@ -161,23 +162,23 @@
   <section class="section">
     <div class="section-heading">
       <span class="eyebrow">CARA PAKAI</span>
-      <h2>Download dalam 3 langkah</h2>
+      <h2>Unduh dalam 3 langkah</h2>
     </div>
     <div class="steps">
       <article>
         <div class="step-number">01</div>
-        <h3>Install & Jalankan</h3>
-        <p>Install via pip lalu jalankan <code style="font-size:12px">parth-dl serve</code>. Server lokal akan aktif di port 8003.</p>
+        <h3>Instal & Jalankan</h3>
+        <p>Instal lewat pip lalu jalankan <code style="font-size:12px">parth-dl serve</code>. Server lokal akan aktif di port 8003.</p>
       </article>
       <article>
         <div class="step-number">02</div>
-        <h3>Paste URL</h3>
-        <p>Salin link Instagram yang ingin didownload lalu tempel ke kolom di atas dan pilih kualitas yang diinginkan.</p>
+        <h3>Tempel URL</h3>
+        <p>Salin link Instagram yang ingin diunduh lalu tempel ke kolom di atas dan pilih kualitas yang diinginkan.</p>
       </article>
       <article>
         <div class="step-number">03</div>
         <h3>File Tersimpan</h3>
-        <p>File langsung tersimpan ke folder <code style="font-size:12px">downloads/</code> lokal. Klik "Download salinan" untuk simpan lewat browser.</p>
+        <p>File langsung tersimpan ke folder <code style="font-size:12px">downloads/</code> lokal. Klik "Unduh salinan" untuk simpan lewat browser.</p>
       </article>
     </div>
   </section>
@@ -190,7 +191,7 @@
     </div>
     <p>
       parth-dl bekerja <strong>tanpa login, cookies, atau token</strong> Instagram.
-      Tool ini hanya bisa mengunduh konten dari akun yang <strong>tidak di-private</strong>.
+      Alat ini hanya bisa mengunduh konten dari akun yang <strong>tidak di-private</strong>.
       Gunakan sesuai ketentuan Instagram dan hanya untuk konten yang memang boleh diunduh.
     </p>
   </div>
@@ -280,7 +281,7 @@ function applySnapshot(job, snap) {
   } else if (snap.state === 'cancelled') {
     job.statusText = snap.message || 'Dibatalkan'
   } else if (snap.state === 'error') {
-    job.statusText = snap.error || 'Download gagal'
+    job.statusText = snap.error || 'Unduh gagal'
     job.percent = -1
   } else {
     job.statusText = snap.message || 'Mempersiapkan…'
@@ -336,7 +337,7 @@ async function submit() {
 
   } catch (err) {
     job.state = 'error'
-    job.statusText = err.message || 'Download gagal'
+    job.statusText = err.message || 'Unduh gagal'
     job.canRetry = true
   } finally {
     submitting.value = false
